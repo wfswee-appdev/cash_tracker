@@ -6,7 +6,6 @@
 #  amount     :decimal(, )      not null
 #  date       :date             not null
 #  receipt    :string
-#  vendor     :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  owner_id   :bigint           not null
@@ -14,7 +13,6 @@
 # Indexes
 #
 #  index_transactions_on_owner_id  (owner_id)
-#  index_transactions_on_vendor    (vendor)
 #
 # Foreign Keys
 #
