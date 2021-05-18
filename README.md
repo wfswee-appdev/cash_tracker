@@ -5,7 +5,7 @@ rails generate devise user username private:boolean transactions_count:integer
 2. Define root route
 3. Add defaults, indices, and constraints to devise migration
 2. Generate transactions scaffold
-rails g scaffold transactions amount:decimal vendor:string receipt:string owner:references
+rails g scaffold transactions amount:decimal vendor receipt owner:references
 3. Add defaults, indices, and constraints to transactions migration
 3. Migrate DB
 3. Install annotate_models
