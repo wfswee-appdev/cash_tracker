@@ -40,7 +40,7 @@ task sample_data: :environment do
       user.transactions.create(
         amount: rand(7..30),
         receipt: "https://robohash.org/#{rand(9999)}",
-        vendor: Faker::Company.name,
+        category: "Lunch",
         date: Faker::Date.between(from: '2020-01-01', to: Date.today)
       )
     end

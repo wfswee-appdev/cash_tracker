@@ -19,7 +19,7 @@
     <% @transactions.each do |transaction| %>
       <tr>
         <td><%= transaction.amount %></td>
-        <td><%= transaction.vendor %></td>
+        <td><%= transaction.category %></td>
         <td><%= transaction.receipt %></td>
         <td><%= transaction.owner_id %></td>
         <td><%= link_to 'Show', transaction %></td>

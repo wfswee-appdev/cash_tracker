@@ -4,21 +4,21 @@
 rails generate devise user username private:boolean transactions_count:integer
 2. Define root route
 3. Add defaults, indices, and constraints to devise migration
-2. Generate transactions scaffold
+4. Generate transactions scaffold
 rails g scaffold transactions amount:decimal vendor receipt owner:references
-3. Add defaults, indices, and constraints to transactions migration
-3. Migrate DB
-3. Install annotate_models
-4. Add model validations and belongs_to / has_many
-5. Migrate database
-6. Get simple version working without image upload
-7. Implement carrierwave and cloudinary (https://chapters.firstdraft.com/chapters/790)
-8. Implement policies with Pundit
-9. Implement manual approval for new accounts (https://github.com/heartcombo/devise/wiki/How-To%3A-Require-admin-to-activate-account-before-sign_in)
-10. Build sample data
-11. Add bootstrap
-12. Ajaxify
-13. Can I automate periodic downloads of the database as a CSV?
+5. Add defaults, indices, and constraints to transactions migration
+6. Migrate DB
+7. Install annotate_models
+8. Add model validations and belongs_to / has_many
+9. Migrate database
+10. Get simple version working without image upload
+11. Implement carrierwave and cloudinary (https://chapters.firstdraft.com/chapters/790)
+12. Implement policies with Pundit
+13. Implement manual approval for new accounts (https://github.com/heartcombo/devise/wiki/How-To%3A-Require-admin-to-activate-account-before-sign_in)
+14. Build sample data
+15. Add bootstrap
+16. Ajaxify
+17. Can I automate periodic downloads of the database as a CSV?
 
 Database structure
 1. Users (first name, last name, email, password)

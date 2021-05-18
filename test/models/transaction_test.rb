@@ -4,6 +4,7 @@
 #
 #  id         :bigint           not null, primary key
 #  amount     :decimal(, )      not null
+#  category   :string           default("Lunch"), not null
 #  date       :date             not null
 #  receipt    :string
 #  created_at :datetime         not null
