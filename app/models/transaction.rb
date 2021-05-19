@@ -23,6 +23,6 @@ class Transaction < ApplicationRecord
   belongs_to :owner, class_name: "User", counter_cache: true
 
   # add more scopes to facilitate reports
-  scope :this_quarter, -> { where(created_at: this_quarter...) }
+  scope :this_quarter, -> { where(date: this_quarter...) }
 
 end
