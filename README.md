@@ -34,6 +34,7 @@ rails g scaffold transactions amount:decimal vendor receipt owner:references
 
 **Odds and Ends ToDo**
 1. Change category to an enum with pre-defined fiels. I probably don't want to give users the ability to add a new field, forcing them to categorize transactions in a way that is easier for me in analyzing the budget and spending.
+2. If no receipt is submitted, show something nice, not a broken image icon
 
 **Database structure**
 1. Users

@@ -11,9 +11,6 @@
     </div>
   <% end %>
 
-<% options = options_from_collection_for_select(Transaction.select("DISTINCT(CATEGORY)"), 'id', 'category') %>
-
-
   <div class="field">
     <%= form.label :date %>
     <%= form.date_field :date, :value => Time.now.strftime('%Y-%m-%d') %>
@@ -26,7 +23,7 @@
 
   <div class="field">
     <%= form.label :category %>
-    <%= form.select :all_val,  options, :value => ("Lunch") %>
+    <%= form.select :category,  options_for_select([['Meal','Meal'], ['Travel','Travel'], ['Misc','Misc']]) %>
   </div>
 
   <div class="field">
@@ -35,8 +32,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :owner_id %>
-    <%= form.text_field :owner_id %>
+    <%= form.hidden_field :owner_id, :value => current_user.id %>
   </div>
 
   <div class="actions">
