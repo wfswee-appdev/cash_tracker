@@ -32,11 +32,14 @@ rails g scaffold transactions amount:decimal vendor receipt owner:references
 20. Write rake task to create automated reports with Heroku task scheduler at the end of each quarter to be delivered by email
 21. Can I automate periodic downloads of the database as a CSV?
 
-Database structure
+**Odds and Ends ToDo**
+1. Change category to an enum with pre-defined fiels. I probably don't want to give users the ability to add a new field, forcing them to categorize transactions in a way that is easier for me in analyzing the budget and spending.
+
+**Database structure**
 1. Users
 2. Transactions
 
-UI (2 pages)
+**UI (2 pages)**
 1. Transactions Feed
     (a) Form to enter new transaction (date (auto-disaply today's date), category, amount, receipt upload)
     (b) Show's user's historical activity (last 5 transactions with ability to "load more") including date, store, category, and amount

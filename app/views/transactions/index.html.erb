@@ -16,6 +16,8 @@
 
 QTD Total: <%= number_to_currency(current_user.transactions.where(:created_at => Date.today.beginning_of_quarter..Date.today.end_of_quarter).sum(:amount)) %>
 
+<%= render "form", transaction: Transaction.new %>
+
   <tbody>
     <% current_user.transactions.each do |transaction| %>
 
