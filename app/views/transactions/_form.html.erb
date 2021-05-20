@@ -11,31 +11,40 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.date_field :date, :value => Time.now.strftime('%Y-%m-%d') %>
-  </div>
-
-  <div class="field">
-    <%= form.label :amount %>
-    <%= form.text_field :amount %>
-  </div>
-
-  <div class="field">
-    <%= form.label :category %>
-    <%= form.select :category,  options_for_select([['Meal','Meal'], ['Travel','Travel'], ['Misc','Misc']]) %>
-  </div>
-
-  <div class="field">
-    <%= form.label :receipt %>
-    <%= form.text_field :receipt %>
-  </div>
-
-  <div class="field">
-    <%= form.hidden_field :owner_id, :value => current_user.id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <tr>
+    <td>
+      <div class="field">
+        <% form.label :date %>
+        <%= form.date_field :date, :value => Time.now.strftime('%Y-%m-%d') %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <% form.label :amount %>
+        <%= form.text_field :amount %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <% form.label :category %>
+        <%= form.select :category,  options_for_select([['Meal','Meal'], ['Travel','Travel'], ['Misc','Misc']]) %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <% form.label :receipt %>
+        <%= form.text_field :receipt %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= form.hidden_field :owner_id, :value => current_user.id %>
+      </div>
+    </td>
+    <td>
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    </td>
+  </tr>
 <% end %>
