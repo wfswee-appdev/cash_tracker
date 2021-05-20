@@ -9,27 +9,25 @@
       <th>Amount</th>
       <th>Category</th>
       <th>Receipt</th>
-      <th>Owner</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
-QTD Total: <%= number_to_currency(current_user.transactions.where(:created_at => Date.today.beginning_of_quarter..Date.today.end_of_quarter).sum(:amount)) %>
+<%= render "qtdsum" %>
 
-
+<%= render "form", transaction: Transaction.new %>
 
   <tbody>
     <% current_user.transactions.each do |transaction| %>
 
-      <tr>
+      <tr id="<%= dom_id(transaction) %>">
         <td><%= transaction.date %></td>
         <td><%= number_to_currency(transaction.amount) %></td>
         <td><%= transaction.category %></td>
         <td><%= image_tag(transaction.receipt, size: 25) %></td>
-        <td><%= transaction.owner.username %></td>
         <td><%= link_to 'Show', transaction %></td>
         <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
-        <td><%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', transaction, method: :delete, remote: true %></td>
       </tr>
     <% end %>
 
