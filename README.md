@@ -39,6 +39,7 @@ rails g scaffold transactions amount:decimal vendor receipt owner:references
 **Questions**
 1. When I submit the form with amount blank, get an error page, not a nice alert like my _form.html.erb directs
 2. How can I get the QTD total to recompute when I use JS to delete a record
+3. When implementing content like "QTD Total" is the best way to do this to create a partial as I did, or to have it direclty in the view template?
 
 **Database structure**
 1. Users
