@@ -14,12 +14,11 @@ rails g scaffold transactions amount:decimal vendor receipt owner:references
 10. Build sample data
 11. Get simple version working without image upload
 12. Implement policies with Pundit
-13. Convert feed and reports to tabs instead of using navbar
-14. Implement carrierwave and cloudinary (https://chapters.firstdraft.com/chapters/790)
-15. Implement manual approval for new accounts (https://github.com/heartcombo/devise/wiki/How-To%3A-Require-admin-to-activate-account-before-sign_in)
-16. Add bootstrap
-Team
-17. Ajaxify
+13. Ajaxify
+14. Convert feed and reports to tabs instead of using navbar
+15. Implement better bootstrap formatting
+16. Implement manual approval for new accounts (https://github.com/heartcombo/devise/wiki/How-To%3A-Require-admin-to-activate-account-before-sign_in)
+17. Implement carrierwave and cloudinary (https://chapters.firstdraft.com/chapters/790)
 18. Can I automate periodic downloads of the database as a CSV?
 
 Database structure
