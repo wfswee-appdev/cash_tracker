@@ -1,5 +1,11 @@
 # README
 
+**What is Cash Tracker?**
+A simple CRUD app that tracks employee spending across categories, generates automated quarterly reports to facilitate employee reimbursement, and provides basic analytics to employees to assess their spending compared to history and their peers.
+
+
+**Development Steps**
+
 1. Install devise (https://grades.firstdraft.com/resources/4a82935f-5e26-4ba2-af65-6f43cb26e75f)
 rails generate devise user username private:boolean transactions_count:integer
 2. Define root route
