@@ -25,16 +25,17 @@ rails g scaffold transactions amount:decimal vendor receipt owner:references
 21. Can I automate periodic downloads of the database as a CSV?
 
 Database structure
-1. Users (first name, last name, email, password)
-2. Transactions (date (not date created), amount, store, link to image of receipt)
+1. Users
+2. Transactions
 
 UI (2 pages)
-1. Feed
-    (a) Form to enter new transaction (date (auto-disaply today's date), store, amount, receipt upload)
+1. Transactions Feed
+    (a) Form to enter new transaction (date (auto-disaply today's date), category, amount, receipt upload)
     (b) Show's user's historical activity (last 5 transactions with ability to "load more") including date, store, category, and amount
+    (c) Show a summer of user's QTD activity (total amount spent, comparison of current QTD vs prior quarters QTD)
 2. Reports
     (a) Show's user's total for the quarter-to-date, simple forecast of full quarer amount, and past 3 completed quarters (preferably in graphical form)
-    (b) Show graph of rolling average (past 30 transactions) from inception
+    (b) Show graph of rolling average (past 30 transactions) over the past year
 
 Helper Methods Review
 https://grades.firstdraft.com/resources/045c39b0-c507-4d4c-b210-3348a23b8a8b
