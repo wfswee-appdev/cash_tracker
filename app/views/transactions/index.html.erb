@@ -1,8 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Feed</h1>
-
-<%= user = User.first.transactions.inspect %>
+<h1>Transactions</h1>
 
 <table>
   <thead>
@@ -16,12 +14,12 @@
   </thead>
 
   <tbody>
-    <% @transactions.each do |transaction| %>
+    <% current_user.transactions.each do |transaction| %>
       <tr>
-        <td><%= transaction.amount %></td>
+        <td><%= number_to_currency(transaction.amount) %></td>
         <td><%= transaction.category %></td>
-        <td><%= transaction.receipt %></td>
-        <td><%= transaction.owner_id %></td>
+        <td><%= image_tag(transaction.receipt, size: 25) %></td>
+        <td><%= transaction.owner.username %></td>
         <td><%= link_to 'Show', transaction %></td>
         <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
         <td><%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
