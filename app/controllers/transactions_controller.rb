@@ -8,6 +8,7 @@ class TransactionsController < ApplicationController
 
   # GET /transactions/1 or /transactions/1.json
   def show
+    authorize @transaction
   end
 
   # GET /transactions/new
@@ -64,7 +65,7 @@ class TransactionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def transaction_params
-      params.require(:transaction).permit(:amount, :vendor, :receipt, :owner_id)
+      params.require(:transaction).permit(:date, :amount, :category, :receipt, :owner_id)
     end
 
 end
