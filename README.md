@@ -14,7 +14,6 @@ rails g scaffold transactions amount:decimal vendor receipt owner:references
 10. Build sample data
 11. Get simple version working without image upload
 12. Implement policies with Pundit
-**Left off part way through 12**
 13. Ajaxify
 14. Convert feed and reports to tabs instead of using navbar
 15. Implement better bootstrap formatting
