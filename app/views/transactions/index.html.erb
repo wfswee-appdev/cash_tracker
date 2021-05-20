@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Date</th>
       <th>Amount</th>
       <th>Category</th>
       <th>Receipt</th>
@@ -13,9 +14,11 @@
     </tr>
   </thead>
 
+
   <tbody>
-    <% current_user.transactions.each do |transaction| %>
+    <% current_user.transactions.order(:date).each do |transaction| %>
       <tr>
+        <td><%= transaction.date %></td>
         <td><%= number_to_currency(transaction.amount) %></td>
         <td><%= transaction.category %></td>
         <td><%= image_tag(transaction.receipt, size: 25) %></td>
