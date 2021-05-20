@@ -11,15 +11,16 @@ rails g scaffold transactions amount:decimal vendor receipt owner:references
 7. Install annotate_models
 8. Add model validations and belongs_to / has_many
 9. Migrate database
-14. Build sample data
-10. Get simple version working without image upload
-11. Implement carrierwave and cloudinary (https://chapters.firstdraft.com/chapters/790)
+10. Build sample data
+11. Get simple version working without image upload
 12. Implement policies with Pundit
-13. Implement manual approval for new accounts (https://github.com/heartcombo/devise/wiki/How-To%3A-Require-admin-to-activate-account-before-sign_in)
-15. Add bootstrap
+13. Convert feed and reports to tabs instead of using navbar
+14. Implement carrierwave and cloudinary (https://chapters.firstdraft.com/chapters/790)
+15. Implement manual approval for new accounts (https://github.com/heartcombo/devise/wiki/How-To%3A-Require-admin-to-activate-account-before-sign_in)
+16. Add bootstrap
 Team
-16. Ajaxify
-17. Can I automate periodic downloads of the database as a CSV?
+17. Ajaxify
+18. Can I automate periodic downloads of the database as a CSV?
 
 Database structure
 1. Users (first name, last name, email, password)
