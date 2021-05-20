@@ -22,9 +22,9 @@ rails g scaffold transactions amount:decimal vendor receipt owner:references
 12. Implement policies with Pundit
 13. Ajaxify
 --change category to a list of defined values (meal, travel, misc)--
-14. Convert feed and reports to tabs instead of using navbar
-15. Implement better bootstrap formatting
-16. Add chart to index comparing QTD spending for all quarters so user can see current quarter trend vs their past trends (i.e. are they over or under spending so far this quarter)
+14. Convert feed and reports to tabs instead of using navbar (check to make sure it looks good on mobile)
+15. Implement better bootstrap formatting throughout
+16. Add chart to index comparing QTD spending for all quarters so user can see current quarter trend vs their past trends (i.e. are they over or under spending so far this quarter), and also that trend vs trend of average of all users
 17. Implement manual approval for new accounts (https://github.com/heartcombo/devise/wiki/How-To%3A-Require-admin-to-activate-account-before-sign_in)
 18. Implement carrierwave and cloudinary (https://chapters.firstdraft.com/chapters/790)
 19. Create charts/stats for reports page
