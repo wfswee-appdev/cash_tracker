@@ -15,6 +15,7 @@ rails g scaffold transactions amount:decimal vendor receipt owner:references
 11. Get simple version working without image upload
 12. Implement policies with Pundit
 13. Ajaxify
+--change category to a list of defined values (meal, travel, misc)--
 14. Convert feed and reports to tabs instead of using navbar
 15. Implement better bootstrap formatting
 16. Add chart to index comparing QTD spending for all quarters so user can see current quarter trend vs their past trends (i.e. are they over or under spending so far this quarter)
