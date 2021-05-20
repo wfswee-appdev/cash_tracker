@@ -58,6 +58,9 @@ class TransactionsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to transactions_url, notice: "Transaction was successfully destroyed." }
       format.json { head :no_content }
+      format.js do
+        render template: "transactions/destroy.js.erb"
+      end
     end
   end
 
