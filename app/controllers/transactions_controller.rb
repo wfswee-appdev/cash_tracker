@@ -1,6 +1,8 @@
 class TransactionsController < ApplicationController
   before_action :set_transaction, only: %i[ show edit update destroy ]
 
+  before_action :ensure_current_user_is_author, only: [ :edit, :update, :destroy ]
+
   # GET /transactions or /transactions.json
   def index
     @transactions = Transaction.all
@@ -8,6 +10,7 @@ class TransactionsController < ApplicationController
 
   # GET /transactions/1 or /transactions/1.json
   def show
+    authorize @transaction
   end
 
   # GET /transactions/new
@@ -36,8 +39,10 @@ class TransactionsController < ApplicationController
 
   # PATCH/PUT /transactions/1 or /transactions/1.json
   def update
+    
     respond_to do |format|
       if @transaction.update(transaction_params)
+        
         format.html { redirect_to @transaction, notice: "Transaction was successfully updated." }
         format.json { render :show, status: :ok, location: @transaction }
       else
@@ -64,7 +69,13 @@ class TransactionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def transaction_params
-      params.require(:transaction).permit(:amount, :vendor, :receipt, :owner_id)
+      params.require(:transaction).permit(:date, :amount, :category, :receipt, :owner_id)
+    end
+
+    def ensure_current_user_is_author
+      if current_user != @transaction.owner
+        redirect_back fallback_location: root_url, notice: "You are not authorized to do this."
+      end
     end
 
 end
