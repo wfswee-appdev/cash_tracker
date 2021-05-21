@@ -1,0 +1,6 @@
+        <td><%= transaction.date %></td>
+        <td><%= number_to_currency(transaction.amount) %></td>
+        <td><%= transaction.category %></td>
+        <td><%= image_tag(transaction.receipt, size: 25) %></td>
+        <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
+        <td><%= link_to 'Destroy', transaction, method: :delete, remote: true %></td>

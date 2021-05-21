@@ -2,6 +2,7 @@
 
 <h1>Transactions</h1>
 
+
 <table>
   <thead>
     <tr>
@@ -17,7 +18,7 @@
 
 <%= render "form", transaction: Transaction.new %>
 
-  <tbody>
+  <table id = "transaction_list" class="table table-striped">
     <% current_user.transactions.each do |transaction| %>
 
       <tr id="<%= dom_id(transaction) %>">
@@ -25,7 +26,6 @@
         <td><%= number_to_currency(transaction.amount) %></td>
         <td><%= transaction.category %></td>
         <td><%= image_tag(transaction.receipt, size: 25) %></td>
-        <td><%= link_to 'Show', transaction %></td>
         <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
         <td><%= link_to 'Destroy', transaction, method: :delete, remote: true %></td>
       </tr>
@@ -33,7 +33,3 @@
 
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Transaction', new_transaction_path %>

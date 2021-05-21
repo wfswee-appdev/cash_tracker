@@ -30,9 +30,14 @@ class TransactionsController < ApplicationController
       if @transaction.save
         format.html { redirect_to @transaction, notice: "Transaction was successfully created." }
         format.json { render :show, status: :created, location: @transaction }
+        format.js { flash.now[:notice] = @transaction.errors.full_messages }
+
+
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @transaction.errors, status: :unprocessable_entity }
+        format.js { flash.now[:notice] = @transaction.errors.full_messages }
+
       end
     end
   end
@@ -58,9 +63,7 @@ class TransactionsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to transactions_url, notice: "Transaction was successfully destroyed." }
       format.json { head :no_content }
-      format.js do
-        render template: "transactions/destroy.js.erb"
-      end
+      format.js
     end
   end
 

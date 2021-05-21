@@ -1,1 +1,5 @@
-console.log("hi!")
+var added_transaction = $("<%= j(render @transaction) %>");
+
+$("#transaction_list").prepend(added_transaction);
+
+$("#flash").html('<%= j render partial: "shared/notice_banner" %>');

@@ -35,11 +35,14 @@ rails g scaffold transactions amount:decimal vendor receipt owner:references
 **Odds and Ends ToDo**
 1. Change category to an enum with pre-defined fields. I probably don't want to give users the ability to add a new field, forcing them to categorize transactions in a way that is easier for me in analyzing the budget and spending.
 2. If no receipt is submitted, show something nice, not a broken image icon
+3. Have a larger image of the receipt show up using javascript in a popover (see bootstrap)
+4. Remove Show; not needed for user to achieve the app's goals
 
 **Questions**
 1. When I submit the form with amount blank, get an error page, not a nice alert like my _form.html.erb directs
-2. How can I get the QTD total to recompute when I use JS to delete a record
+2. Resolved - How can I get the QTD total to recompute when I use JS to delete a record
 3. When implementing content like "QTD Total" is the best way to do this to create a partial as I did, or to have it direclty in the view template?
+4. use datepicker for the date field in the form (https://getdatepicker.com/5-4/Usage/, https://chapters.firstdraft.com/chapters/861#frequently-used-jquery-methods)
 
 **Database structure**
 1. Users
