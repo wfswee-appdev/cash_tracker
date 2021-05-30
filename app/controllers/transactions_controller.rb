@@ -25,11 +25,11 @@ class TransactionsController < ApplicationController
   # POST /transactions or /transactions.json
   def create
     @transaction = Transaction.new(transaction_params)
-
     respond_to do |format|
       if @transaction.save
         format.html { redirect_to @transaction, notice: "Transaction was successfully created." }
         format.json { render :show, status: :created, location: @transaction }
+        # format.js { flash.now[:notice] = @transaction.errors.full_messages }
         format.js { flash.now[:notice] = @transaction.errors.full_messages }
 
 

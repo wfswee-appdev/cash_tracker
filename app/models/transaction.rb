@@ -25,4 +25,6 @@ class Transaction < ApplicationRecord
   # add more scopes to facilitate reports
 #  scope :this_quarter, -> { where(date: this_quarter...) }
 
+  validates :amount, presence: true
+
 end

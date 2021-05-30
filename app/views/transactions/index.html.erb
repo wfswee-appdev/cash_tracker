@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Transactions</h1>
 
 
@@ -26,8 +24,16 @@
         <td><%= number_to_currency(transaction.amount) %></td>
         <td><%= transaction.category %></td>
         <td><%= image_tag(transaction.receipt, size: 25) %></td>
-        <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
-        <td><%= link_to 'Destroy', transaction, method: :delete, remote: true %></td>
+        <td>
+          <%= link_to edit_transaction_path(transaction), class: "btn btn-link" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+        </td>
+        <td>          
+          <%= link_to transaction, method: :delete, remote: true, class: "btn btn-link" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
+        </td>
       </tr>
     <% end %>
 
