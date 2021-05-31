@@ -20,7 +20,7 @@
     </thead>
 
   <tbody id = "transaction_list">
-    <% current_user.transactions.each do |transaction| %>
+    <% @transactions_pagy.each do |transaction| %>
 
       <tr id="<%= dom_id(transaction) %>">
         <td class="align-middle">
@@ -50,3 +50,4 @@
 
   </tbody>
 </table>
+<%= pagy_bootstrap_nav(@pagy).html_safe %>
