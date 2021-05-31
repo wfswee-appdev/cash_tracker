@@ -1,52 +1,51 @@
-<%= form_with(model: transaction, local: false) do |form| %>
-  <% if transaction.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+<div class="card col-md-6">
+  <div class="card-body">
+    <h5 class="card-title">New Transaction</h5>
 
-      <ul>
-        <% transaction.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <%= form_with(model: transaction, local: false) do |form| %>
+      <% if transaction.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
 
-  <tr>
-    <td>
-      <div class="field">
-        <% form.label :date %>
-        <%= form.date_field :date, :value => Time.current.strftime('%Y-%m-%d') %>
-      </div>
-    </td>
-    <td>
-      <div class="field">
-        <% form.label :amount %>
-        <%= form.text_field :amount %>
-      </div>
-    </td>
-    <td>
-      <div class="field">
-        <% form.label :category %>
-        <%= form.select :category,  options_for_select([['Meal','Meal'], ['Travel','Travel'], ['Misc','Misc']]) %>
-      </div>
-    </td>
-    <td>
-      <div class="field">
-        <% form.label :receipt %>
-        <%= form.text_field :receipt %>
-      </div>
-    </td>
-    <td>
-      <div class="field">
-        <%= form.hidden_field :owner_id, :value => current_user.id %>
-      </div>
-    </td>
-    <td>
-      <div class="actions">
+          <ul>
+            <% transaction.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-        <%= form.submit 'Add', :class => 'btn btn-primary' %>
+      <div class = "form-group mb-0">
+            <div class="field mb-3">
+              <% form.label :date %>
+              <%= form.date_field :date, :value => Time.current.strftime('%Y-%m-%d'), class: 'form-control' %>
+            </div>
 
+            <div class="field mb-3">
+              <% form.label :amount %>
+              <%= form.text_field :amount, placeholder: "Amount", class: 'form-control' %>
+            </div>
+
+            <div class="field mb-3">
+              <% form.label :category %>
+              <%= form.select :category,  options_for_select([['Meal','Meal'], ['Travel','Travel'], ['Misc','Misc']]), {}, { class: 'form-control' } %>
+            </div>
+
+            <div class="field mb-3">
+              <% form.label :receipt %>
+              <%= form.text_field :receipt, placeholder: "Receipt", class: 'form-control' %>
+            </div>
+
+            <div class="field mb-3">
+              <%= form.hidden_field :owner_id, :value => current_user.id %>
+            </div>
+
+            <div class="actions text-center">
+              <%= button_tag( class: "btn btn-link" ) do %>
+                <i class="fas fa-plus-circle fa-3x"></i>
+              <% end %>
+            </div>
       </div>
-    </td>
-  </tr>
-<% end %>
+    <% end %>
+  </div>
+</div>

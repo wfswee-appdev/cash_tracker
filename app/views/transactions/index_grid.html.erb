@@ -1,0 +1,42 @@
+
+<%= render "form", transaction: Transaction.new %>
+
+<br>
+<h5>Transaction History</h5>
+
+<%= render "qtdsum" %>
+<br>
+
+<div class = "container" >
+    <div class="row">
+      <div class="col">Date</div>
+      <div class="col">Amount</div>
+      <div class="col">Category</div>
+      <div class="col">Receipt</div>
+      <div class="col"></div>
+      <div class="col"></div>
+    </div>
+
+<div id = "transaction_list">
+
+    <% current_user.transactions.each do |transaction| %>
+
+      <div id="<%= dom_id(transaction) %>" class="row">
+        <div class="col"><%= transaction.date %></div>
+        <div class="col"><%= number_to_currency(transaction.amount) %></div>
+        <div class="col"><%= transaction.category %></div>
+        <div class="col"><%= image_tag(transaction.receipt, size: 25) %></div>
+        <div class="col">
+          <%= link_to edit_transaction_path(transaction), class: "btn btn-link" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+        </div>
+        <div class="col">          
+          <%= link_to transaction, method: :delete, remote: true, class: "btn btn-link" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
