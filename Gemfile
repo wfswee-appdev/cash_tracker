@@ -85,3 +85,6 @@ end
 
 # Gems for implementating infinite scroll
 gem 'pagy'
+
+# Gems for analytics
+gem 'chartkick'
