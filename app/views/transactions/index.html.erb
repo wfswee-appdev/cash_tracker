@@ -7,6 +7,9 @@
 <%= render "qtdsum" %>
 <br>
 
+<div data-controller = "infinite-scroll" data-action = "scroll@window->infinite-scroll#scroll">
+<div data-target = "infinite-scroll.entries">
+
 <table class = "table table-striped" >
     <thead class="thead-light">
     <tr>
@@ -19,38 +22,8 @@
     </tr>
     </thead>
 
-<div data-controller = "infinite-scroll">
-<div data-target = "infinite-scroll.entries">
-  <tbody id = "transaction_list">
-    <% @transactions_pagy.each do |transaction| %>
-
-      <tr id="<%= dom_id(transaction) %>">
-        <td class="align-middle">
-          <%= transaction.date %>
-        </td>
-        <td class="align-middle">
-          <%= number_to_currency(transaction.amount) %>
-        </td>
-        <td class="align-middle">
-          <%= transaction.category %>
-        </td>
-        <td class="align-middle">
-          <%= image_tag(transaction.receipt, size: 25) %>
-        </td>
-        <td class="align-middle">
-          <%= link_to edit_transaction_path(transaction), class: "btn btn-link" do %>
-            <i class="fas fa-edit"></i>
-          <% end %>
-        </td>
-        <td class="align-middle">          
-          <%= link_to transaction, method: :delete, remote: true, class: "btn btn-link" do %>
-            <i class="fas fa-trash-alt"></i>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-
-  </tbody>
+ 
+  <%= render "transactions_feed" %>
 
 </div>
 </div>

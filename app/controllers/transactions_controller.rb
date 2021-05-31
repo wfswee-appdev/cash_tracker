@@ -9,6 +9,13 @@ class TransactionsController < ApplicationController
 
       @pagy, @transactions_pagy = pagy(Transaction.where(owner_id: current_user.id).order('date DESC'), items: 5)
 
+      respond_to do |format|
+        format.html
+        format.json {
+          render json: { entries: render_to_string(partial: "transactions_feed", formats: [:html]), pagination: view_context.pagy_nav(@pagy) }
+        }
+      end
+
   end
 
   # GET /transactions/1 or /transactions/1.json

@@ -3,42 +3,25 @@ import { Controller } from "stimulus"
 export default class extends Controller {
   static targets = ["entries", "pagination"]
 
-  initialize() {
-    let options = {
-      rootMargin: '200px',
+  scroll() {   
+    let url = this.paginationTarget.querySelector("a[rel='next']").href
+    var body = document.body,
+      html = document.documentElement
+    
+    var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight)
+
+    if(window.pageYOffset >= height - window.innerHeight) {
+      console.log("bottom")
+      this.loadMore(url)
     }
-
-    this.intersectionObserver = new IntersectionObserver(entries => this.processIntersectionEntries(entries), options)
   }
-
-  connect() {
-    this.intersectionObserver.observe(this.paginationTarget)
-  }
-
-  disconnect() {
-    this.intersectionObserver.unobserve(this.paginationTarget)
-  }
-
-  processIntersectionEntries(entries) {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        this.loadMore()
-      }
-    })
-  }
-
-  loadMore() {
-    let next_page = this.paginationTarget.querySelector("a[rel='next']")
-    if (next_page == null) { return }
-    let url = next_page.href
-
-    Rails.ajax({
+  loadMore(url) {
+    RadioNodeList.ajax({
       type: 'GET',
       url: url,
       dataType: 'json',
       success: (data) => {
-        this.entriesTarget.insertAdjacentHTML('beforeend', data.entries)
-        this.paginationTarget.innerHTML = data.pagination
+        console.log(data)
       }
     })
   }
