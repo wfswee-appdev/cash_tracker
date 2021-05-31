@@ -82,3 +82,6 @@ group :development do
   gem 'rubocop-rails'
   gem 'web_git', github: 'firstdraft/web_git', branch: 'spring2020'
 end
+
+# Gems for implementating infinite scroll
+gem 'pagy'
