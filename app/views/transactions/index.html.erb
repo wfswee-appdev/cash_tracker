@@ -19,6 +19,8 @@
     </tr>
     </thead>
 
+<div data-controller = "infinite-scroll">
+<div data-target = "infinite-scroll.entries">
   <tbody id = "transaction_list">
     <% @transactions_pagy.each do |transaction| %>
 
@@ -49,5 +51,12 @@
     <% end %>
 
   </tbody>
+
+</div>
+</div>
+
 </table>
-<%= pagy_bootstrap_nav(@pagy).html_safe %>
+
+<div data-target = "infinite-scroll.pagination">
+  <%= pagy_bootstrap_nav(@pagy).html_safe %>
+</div>
