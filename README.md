@@ -22,15 +22,16 @@ rails g scaffold transactions amount:decimal vendor receipt owner:references
 12. Implement policies with Pundit
 13. Ajaxify
 --change category to a list of defined values (meal, travel, misc)--
-14. Convert feed and reports to tabs instead of using navbar (check to make sure it looks good on mobile)
-15. Implement better bootstrap formatting throughout
-16. Add chart to index comparing QTD spending for all quarters so user can see current quarter trend vs their past trends (i.e. are they over or under spending so far this quarter), and also that trend vs trend of average of all users
+14. Add infinite scrolling to transactions feed
+15. Convert feed and reports to tabs instead of using navbar (check to make sure it looks good on mobile)
+16. Implement better bootstrap formatting throughout
+17. Add chart to index comparing QTD spending for all quarters so user can see current quarter trend vs their past trends (i.e. are they over or under spending so far this quarter), and also that trend vs trend of average of all users
 (https://chartkick.com/, https://github.com/ankane/chartkick)
-17. Implement manual approval for new accounts (https://github.com/heartcombo/devise/wiki/How-To%3A-Require-admin-to-activate-account-before-sign_in)
-18. Implement carrierwave and cloudinary (https://chapters.firstdraft.com/chapters/790)
-19. Create charts/stats for reports page
-20. Write rake task to create automated reports with Heroku task scheduler at the end of each quarter to be delivered by email
-21. Can I automate periodic downloads of the database as a CSV?
+18. Implement manual approval for new accounts (https://github.com/heartcombo/devise/wiki/How-To%3A-Require-admin-to-activate-account-before-sign_in)
+19. Implement carrierwave and cloudinary (https://chapters.firstdraft.com/chapters/790)
+20. Create charts/stats for reports page
+21. Write rake task to create automated reports with Heroku task scheduler at the end of each quarter to be delivered by email
+22. Can I automate periodic downloads of the database as a CSV?
 
 **Odds and Ends ToDo**
 1. Change category to an enum with pre-defined fields. I probably don't want to give users the ability to add a new field, forcing them to categorize transactions in a way that is easier for me in analyzing the budget and spending.
