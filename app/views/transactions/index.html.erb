@@ -1,3 +1,6 @@
+<script>
+  window.addEventListener("turbolinks:load", Pagy.init);
+</script>
 
 <%= render "form", transaction: Transaction.new %>
 
@@ -9,7 +12,7 @@
 
 <br>
 
-<table class = "table table-striped" >
+<table class = "table table-responsive table-striped" >
     <thead class="thead-light">
     <tr>
       <th scope="col-md-3">Date</th>
@@ -52,4 +55,4 @@
 
   </tbody>
 </table>
-<%= pagy_bootstrap_nav(@pagy).html_safe %>
+<%= pagy_bootstrap_combo_nav_js(@pagy).html_safe %>
