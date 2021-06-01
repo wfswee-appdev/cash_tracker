@@ -9,6 +9,15 @@ class TransactionsController < ApplicationController
 
       @pagy, @transactions_pagy = pagy(Transaction.where(owner_id: current_user.id).order('date DESC'), items: 5)
 
+      # @user_transaction_categories = current_user
+      # @user_transaction_categories.transactions.group(:category).count
+
+      #@test_chart = current_user.transactions.group(:date).sum(:amount)
+@transactions_amount_current_user = Transaction.where(:owner_id => current_user.id).group(:date).sum(:amount)
+      # s = 0
+      # current_user.transactions.group(:date, last: 12).
+      # sum(:amount).transform_values.map { |v| s += v }
+@transactions_amount_all_users = Transaction.group(:date).sum(:amount)
   end
 
   # GET /transactions/1 or /transactions/1.json
