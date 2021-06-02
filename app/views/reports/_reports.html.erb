@@ -1,25 +1,52 @@
+
 <div class="container pb-3">
+<span class = "small"> <%= "Current quarter start date: #{Date.today.beginning_of_quarter}" %> </span>
   <div class="row justify-content-around">
     
     <div class="col-md-5 mt-3 pt-2 pb-2 border border-secondary rounded bg-light">
-      <h6>What have I been spending on?</h6>
-      <%= pie_chart @transactions_categories_all_users, donut: true, prefix: "$", library: {pieSliceText: 'value-and-percentage'} %>
+      <h6>What have I been spending on this quarter?</h6>
+      <%= pie_chart @transactions_categories_current_user, donut: true, suffix: "%", round: 2 %>
+      <br/>
+
+      <div class="container">
+        <div class="row justify-content-around">
+          <% @transactions_categories_current_user_stable.each do |k,v| %>
+            <small class="col text-muted">
+              <%= p "#{k}: $#{v.to_i}" %>
+            </small>
+          <% end %>
+        </div>
+      </div>
     </div>
+
     <div class="col-md-5 mt-3 pt-2 pb-2 border border-secondary rounded bg-light">
-      <h6>What has my team been spending on?</h6>
-      <%= pie_chart @transactions_categories_current_user, donut: true %>
-    </div>
+      <h6>What has my team been spending on this quarter?</h6>
+      <%= pie_chart @transactions_categories_all_users, donut: true, suffix: "%", round: 2 %>
+      <br/>
   
+      <div class="container">
+        <div class="row justify-content-around">
+          <% @transactions_categories_all_users_stable.each do |k,v| %>
+            <small class="col text-muted">
+              <%= p "#{k}: $#{v.to_i}" %>
+            </small>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
   </div>
   <div class="row justify-content-around">
     
     <div class="col-md-5 mt-3 pt-2 pb-2 border border-secondary rounded bg-light">
-      <h6>What have I been spending lately?</h6>
-      <%= column_chart @transactions_amount_current_user, ytitle: "Amount", prefix: "$" %>
+      <h6>What have I been spending in recent quarters?</h6>
+      
+      <%= line_chart Transaction.group_by_week(:created_at, time_zone: "Pacific Time (US & Canada)").count %>
+
     </div>
     <div class="col-md-5 mt-3 pt-2 pb-2 border border-secondary rounded bg-light">
-      <h6>What has my team been spending lately?</h6>
-      <%= column_chart @transactions_amount_all_users, ytitle: "Amount", prefix: "$"%>
+      <h6>What has my team been spending in recent quarters?</h6>
+      <%= column_chart @transactions_amount_all_users, prefix: "$"%>
     </div>
   
   </div>
