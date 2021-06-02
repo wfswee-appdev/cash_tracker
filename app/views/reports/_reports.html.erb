@@ -1,10 +1,26 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <%= pie_chart Transaction.group(:category).count, donut: true %>
+<div class="container pb-3">
+  <div class="row justify-content-around">
+    
+    <div class="col-md-5 mt-3 pt-2 pb-2 border border-secondary rounded bg-light">
+      <h6>What have I been spending on?</h6>
+      <%= pie_chart @transactions_categories_all_users, donut: true, prefix: "$", library: {pieSliceText: 'value-and-percentage'} %>
     </div>
-    <div class="col">
-      <%= column_chart @transactions_amount_current_user, ytitle: "Amount", title: "#{current_user.username}'s Transactions"%>
+    <div class="col-md-5 mt-3 pt-2 pb-2 border border-secondary rounded bg-light">
+      <h6>What has my team been spending on?</h6>
+      <%= pie_chart @transactions_categories_current_user, donut: true %>
     </div>
+  
+  </div>
+  <div class="row justify-content-around">
+    
+    <div class="col-md-5 mt-3 pt-2 pb-2 border border-secondary rounded bg-light">
+      <h6>What have I been spending lately?</h6>
+      <%= column_chart @transactions_amount_current_user, ytitle: "Amount", prefix: "$" %>
+    </div>
+    <div class="col-md-5 mt-3 pt-2 pb-2 border border-secondary rounded bg-light">
+      <h6>What has my team been spending lately?</h6>
+      <%= column_chart @transactions_amount_all_users, ytitle: "Amount", prefix: "$"%>
+    </div>
+  
   </div>
 </div>

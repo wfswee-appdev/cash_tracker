@@ -88,3 +88,4 @@ gem 'pagy'
 
 # Gems for analytics
 gem 'chartkick'
+gem 'groupdate'
