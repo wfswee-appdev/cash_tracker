@@ -28,4 +28,6 @@ class User < ApplicationRecord
 
   has_many :transactions, -> { order(date: :desc, created_at: :desc) }, foreign_key: :owner_id
 
+  validates :amount, presence: true
+
 end

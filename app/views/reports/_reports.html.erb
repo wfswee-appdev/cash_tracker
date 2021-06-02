@@ -2,6 +2,19 @@
 <div class="container pb-3">
 <span class = "small"> <%= "Current quarter start date: #{Date.today.beginning_of_quarter}" %> </span>
   <div class="row justify-content-around">
+    <div class="col-md-5 mt-3 pt-2 pb-2 border border-secondary rounded bg-light">
+        <h6>How is my spending this quarter looking so far?</h6>
+          <%= area_chart @current_user_cumulative_spending_qtd %>
+    </div>
+
+    <div class="col-md-5 mt-3 pt-2 pb-2 border border-secondary rounded bg-light">
+        <h6>What did my spending last quarter look like?</h6>
+          <%= area_chart @current_user_cumulative_spending_last_quarter %>
+    </div>
+  </div>
+
+
+  <div class="row justify-content-around">
     
     <div class="col-md-5 mt-3 pt-2 pb-2 border border-secondary rounded bg-light">
       <h6>What have I been spending on this quarter?</h6>
@@ -59,3 +72,4 @@
   </div>
 
 </div>
+

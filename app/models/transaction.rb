@@ -23,8 +23,8 @@ class Transaction < ApplicationRecord
   belongs_to :owner, class_name: "User", counter_cache: true
 
   # add more scopes to facilitate reports
-#  scope :this_quarter, -> { where(date: this_quarter...) }
-
+  scope :current_quarter, -> { where(:date => Date.today.beginning_of_quarter..Date.today.end_of_quarter) }
+  
   validates :amount, presence: true
 
 end
