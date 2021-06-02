@@ -41,13 +41,21 @@
     <div class="col-md-5 mt-3 pt-2 pb-2 border border-secondary rounded bg-light">
       <h6>What have I been spending in recent quarters?</h6>
       
-      <%= line_chart Transaction.group_by_week(:created_at, time_zone: "Pacific Time (US & Canada)").count %>
+      <%= column_chart @transactions_amount_current_user, prefix: "$" %>
 
     </div>
     <div class="col-md-5 mt-3 pt-2 pb-2 border border-secondary rounded bg-light">
       <h6>What has my team been spending in recent quarters?</h6>
-      <%= column_chart @transactions_amount_all_users, prefix: "$"%>
+      <%= column_chart @transactions_amount_all_users, prefix: "$" %>
     </div>
-  
   </div>
+
+  <div class="row justify-content-around">
+    <div class="col-md-11 mt-3 pt-2 pb-2 border border-secondary rounded bg-light">
+        <h6>What have I been spending by category in recent quarters?</h6>
+        <%= line_chart @current_user_quarterly_spend_by_category, prefix: "%" %>
+  
+    </div>
+  </div>
+
 </div>

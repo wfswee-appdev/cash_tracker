@@ -24,10 +24,10 @@ class ReportsController < ApplicationController
 
       @transactions_categories_current_user = transactions_categories_current_user
 
-
       # *************************
       # Pie chart of all users' percentage of spending by category in current quarter
       # *************************
+
       total_of_all_users_transactions = Transaction.where(:date => Date.today.beginning_of_quarter..Date.today.end_of_quarter).group(:category).sum(:amount)
       # Old version of this filter that didn't restrict transactions to the current quarter
       # total_of_all_users_transactions = Transaction.group(:category).sum(:amount)
@@ -46,18 +46,29 @@ class ReportsController < ApplicationController
 
       @transactions_categories_all_users = transactions_categories_all_users
 
-
       # *************************
       # Line chart of all current user's spending by quarter since inception
       # *************************
-      # Old version of this filter that didn't restrict transactions to the current quarter
-      # @transactions_amount_current_user = Transaction.all.group_by_day.sum(:amount)
 
-      @transactions_amount_current_user = Transaction.where(:owner_id => current_user.id).group(:date).sum(:amount)
+      @transactions_amount_current_user = Transaction.where(:owner_id => current_user.id).group_by_quarter(:date).sum(:amount)
+
+      # *************************
+      # Line chart of all users' spending by quarter since inception
+      # *************************
+
+      @transactions_amount_all_users = Transaction.group_by_quarter(:date).sum(:amount)
+
+      # *************************
+      # Line chart of current user's spending by category by quarter since inception
+      # *************************
+
+      @current_user_quarterly_spend_by_category = Transaction.where(:owner_id => current_user.id).group(:category).group_by_quarter(:date).count
+
+      # *************************
+      # Current user cumulative spending QTD
+      # *************************
+
       
-      @transactions_amount_all_users = Transaction.group(:created_at).sum(:amount)
-
-
     end
 
 end
