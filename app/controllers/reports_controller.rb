@@ -62,7 +62,7 @@ class ReportsController < ApplicationController
       # Line chart of current user's spending by category by quarter since inception
       # *************************
 
-      @current_user_quarterly_spend_by_category = Transaction.where(:owner_id => current_user.id).group(:category).group_by_quarter(:date).count
+      @current_user_quarterly_spend_by_category = Transaction.where(:owner_id => current_user.id).group(:category).group_by_quarter(:date).sum(:amount)
 
       # *************************
       # Current user cumulative spending QTD
