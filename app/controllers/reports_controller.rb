@@ -50,14 +50,14 @@ class ReportsController < ApplicationController
       .inject(0) { |total, (k, v)| total + v }
 
       @transactions_categories_all_users_stable = 
-      current_user
-      .transactions
+      Transaction
+      .current_quarter
       .group(:category)
       .sum(:amount)
 
       transactions_categories_all_users = 
-      current_user
-      .transactions
+      Transaction
+      .current_quarter
       .group(:category)
       .sum(:amount)
 
