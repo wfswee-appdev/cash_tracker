@@ -1,5 +1,5 @@
 <div id = "sumHolder">
 
-QTD Total: <%= number_to_currency(current_user.transactions.where(:created_at => Date.today.beginning_of_quarter..Date.today.end_of_quarter).sum(:amount)) %>
+So far this quarter you've spent <%= number_to_currency(current_user.transactions.current_quarter.sum(:amount)) %>, which puts you on pace to spend X for the whole quarter, or about Y/Z less/more than the budgeted amount. Last quarter, you spent A. You usually spend about B in a quarter.
 
 </div>

@@ -21,7 +21,7 @@
     </thead>
 
   <tbody id = "transaction_list">
-    <% @transactions_pagy.each do |transaction| %>
+    <% @transactions_pagy.order(date: :desc, created_at: :desc).each do |transaction| %>
 
       <tr id="<%= dom_id(transaction) %>">
         <td class="align-middle">

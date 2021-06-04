@@ -25,6 +25,9 @@ class Transaction < ApplicationRecord
   # add more scopes to facilitate reports
   scope :current_quarter, -> { where(:date => Date.today.beginning_of_quarter..Date.today.end_of_quarter) }
   
+  date_three_months_ago = Date.today << 3
+  scope :prior_quarter, -> {where(:date => date_three_months_ago.beginning_of_quarter..date_three_months_ago.end_of_quarter) }
+  
   validates :amount, presence: true
 
 end

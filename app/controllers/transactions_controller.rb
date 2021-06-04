@@ -7,7 +7,7 @@ class TransactionsController < ApplicationController
   def index
       @transactions = Transaction.all
 
-      @pagy, @transactions_pagy = pagy(Transaction.where(owner_id: current_user.id).order('date DESC'), items: 5)
+      @pagy, @transactions_pagy = pagy(current_user.transactions.order('date DESC'), items: 5)
 
   end
 

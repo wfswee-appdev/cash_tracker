@@ -26,7 +26,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :transactions, -> { order(date: :desc, created_at: :desc) }, foreign_key: :owner_id
+  has_many :transactions, foreign_key: :owner_id
 
   validates :amount, presence: true
 
