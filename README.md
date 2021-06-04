@@ -16,4 +16,4 @@ A simple CRUD app that tracks employee spending across categories, generates aut
 1. If no receipt is submitted, show something nice, not a broken image icon
 2. Allow transaction details to be viewed in a modal with a larger image of the receipt
 3. use datepicker for the date field in the form (https://getdatepicker.com/5-4/Usage/, https://chapters.firstdraft.com/chapters/861#frequently-used-jquery-methods)
-4. Implement infinite scrolling instead of pagination
+4. Implement infinite scrolling instead of pagination 
