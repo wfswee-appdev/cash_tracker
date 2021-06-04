@@ -28,6 +28,4 @@ class User < ApplicationRecord
 
   has_many :transactions, foreign_key: :owner_id
 
-  validates :amount, presence: true
-
 end
