@@ -1,7 +1,12 @@
 <div class = "container">
   <nav class="navbar navbar-expand-sm navbar-light bg-light">
     <div class="container-fluid">
-      <%= link_to "Cash Track", root_path, class: "navbar-brand" %>
+      <%= link_to root_path do %>
+        <span class="navbar-brand">Persimmony
+        <i class="fas fa-lemon"></i></span>
+      <% end %>
+
+
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
