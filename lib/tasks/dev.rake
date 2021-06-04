@@ -24,7 +24,7 @@ task sample_data: :environment do
   users = User.all
 
   users.each do |user|
-    rand(100).times do
+    100.times do
       user.transactions.create(
         amount: rand(7..30),
         receipt: "https://robohash.org/#{rand(9999)}",
