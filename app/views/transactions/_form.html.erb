@@ -1,37 +1,51 @@
-<%= form_with(model: transaction) do |form| %>
-  <% if transaction.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+<div class="card col-md-6">
+  <div class="card-body">
+    <h5 class="card-title">New Transaction</h5>
 
-      <ul>
-        <% transaction.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <%= form_with(model: transaction, local: false) do |form| %>
+      <% if transaction.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
 
-  <div class="field">
-    <%= form.label :amount %>
-    <%= form.text_field :amount %>
+          <ul>
+            <% transaction.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class = "form-group mb-0">
+            <div class="field mb-3">
+              <% form.label :date %>
+              <%= form.date_field :date, :value => Time.current.strftime('%Y-%m-%d'), class: 'form-control' %>
+            </div>
+
+            <div class="field mb-3">
+              <% form.label :amount %>
+              <%= form.text_field :amount, placeholder: "Amount", class: 'form-control' %>
+            </div>
+
+            <div class="field mb-3">
+              <% form.label :category %>
+              <%= form.select :category,  options_for_select([['Meal','Meal'], ['Travel','Travel'], ['Misc','Misc']]), {}, { class: 'form-control' } %>
+            </div>
+
+            <div class="field mb-3">
+              <% form.label :receipt %>
+              <%= form.text_field :receipt, placeholder: "Receipt", class: 'form-control' %>
+            </div>
+
+            <div class="field mb-3">
+              <%= form.hidden_field :owner_id, :value => current_user.id %>
+            </div>
+
+            <div class="actions text-center">
+              <%= button_tag( class: "btn btn-link" ) do %>
+                <i class="fas fa-plus-circle fa-3x"></i>
+              <% end %>
+            </div>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= form.label :vendor %>
-    <%= form.text_field :vendor %>
-  </div>
-
-  <div class="field">
-    <%= form.label :receipt %>
-    <%= form.text_field :receipt %>
-  </div>
-
-  <div class="field">
-    <%= form.label :owner_id %>
-    <%= form.text_field :owner_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

@@ -19,28 +19,16 @@ task sample_data: :environment do
     )
   end
 
-  # users=User.all
-
-  # 5.times do
-  #   u = User.new
-  #   u.username = Faker::Name.first_name
-  #   u.email = "#{u.username}@email.com"
-  #   u.password = "password"
-
-  #   u.save
-  #   p "#{u.username}"
-  # end
-
   p "#{User.count} users have been created."
 
   users = User.all
 
   users.each do |user|
-    rand(100).times do
+    100.times do
       user.transactions.create(
         amount: rand(7..30),
         receipt: "https://robohash.org/#{rand(9999)}",
-        category: "Lunch",
+        category: ["Meal","Travel","Misc"].sample,
         date: Faker::Date.between(from: '2020-01-01', to: Date.today)
       )
     end

@@ -1,0 +1,5 @@
+$("#<%= dom_id(@transaction) %>").fadeOut(500,function() {
+  $(this).remove()
+  });
+
+$("#sumHolder").html("<%= escape_javascript(render(:partial => 'qtdsum' , :locals => { :total => @total })).html_safe %>");
