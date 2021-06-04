@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_05_18_150621) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.date "date", null: false
-    t.string "category", default: "Lunch", null: false
+    t.string "category", null: false
     t.index ["owner_id"], name: "index_transactions_on_owner_id"
   end
 

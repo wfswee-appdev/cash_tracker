@@ -1,28 +1,3 @@
-<%= render "form", transaction: Transaction.new %>
-
-<br>
-<h5>Transaction History</h5>
-
-<%= render "qtdsum" %>
-
-
-<br>
-
-<table class = "table table-responsive table-striped" >
-    <thead class="thead-light">
-    <tr>
-      <th scope="col-md-3">Date</th>
-      <th scope="col">Amount</th>
-      <th scope="col">Category</th>
-      <th scope="col">Receipt</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-    </tr>
-    </thead>
-
-  <tbody id = "transaction_list">
-    <% @transactions_pagy.order(date: :desc, created_at: :desc).each do |transaction| %>
-
       <tr id="<%= dom_id(transaction) %>">
         <td class="align-middle">
           <%= transaction.date %>
@@ -47,8 +22,3 @@
           <% end %>
         </td>
       </tr>
-    <% end %>
-
-  </tbody>
-</table>
-<%= pagy_bootstrap_nav(@pagy).html_safe %>

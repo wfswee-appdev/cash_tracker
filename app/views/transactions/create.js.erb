@@ -1,0 +1,4 @@
+var added_transaction = $("<%= j(render @transaction) %>")
+    .hide()
+    .fadeIn(1000);
+$('#transaction_list').prepend(added_transaction);

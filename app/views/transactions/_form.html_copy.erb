@@ -1,0 +1,59 @@
+<div class="card">
+  <div class="card-body">
+
+<%= form_with(model: transaction, local: false) do |form| %>
+  <% if transaction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+
+      <ul>
+        <% transaction.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<table>
+  <tr>
+    <td>
+      <div class="field">
+        <% form.label :date %>
+        <%= form.date_field :date, :value => Time.current.strftime('%Y-%m-%d'), class: 'form-control' %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <% form.label :amount %>
+        <%= form.text_field :amount, class: 'form-control' %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <% form.label :category %>
+        <%= form.select :category,  options_for_select([['Meal','Meal'], ['Travel','Travel'], ['Misc','Misc']]), {}, { class: 'form-control' } %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <% form.label :receipt %>
+        <%= form.text_field :receipt, class: 'form-control' %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= form.hidden_field :owner_id, :value => current_user.id %>
+      </div>
+    </td>
+    <td>
+      <div class="actions">
+
+        <%= form.submit 'Add', class: 'btn btn-primary' %>
+
+      </div>
+    </td>
+  </tr>
+</table>
+<% end %>
+</div>
+</div>
